@@ -1,0 +1,26 @@
+FROM dockerhub.hd123.com/jre-alpine:6
+
+ENV TC_MAJOR=6 \
+	TC_VERSION=6.0.36
+ENV TC_URL=http://archive.apache.org/dist/tomcat/tomcat-$TC_MAJOR/v$TC_VERSION/bin/apache-tomcat-$TC_VERSION.tar.gz
+WORKDIR /opt/heading 
+RUN wget $TC_URL && \
+	tar -xzf apache-tomcat-$TC_VERSION.tar.gz && \
+	mv apache-tomcat-$TC_VERSION tomcat6 && \
+	rm -rf tomcat6/bin/*.bat \
+		   tomcat6/webapps/docs \
+		   tomcat6/webapps/examples \
+		   tomcat6/webapps/host-manager \
+		   tomcat6/webapps/ROOT \
+		   apache-tomcat-$TC_VERSION.* && \
+	sed -i '86a JAVA_OPTS="-Xms1g -Xmx4g -XX:+UseConcMarkSweepGC -XX:+CMSIncrementalMode -XX:NewSize=512m -XX:MaxPermSize=256m -Dfile.encoding=GBK -DskipLicenseUserChecking=true"' tomcat6/bin/catalina.sh && \
+	sed -i '35a <role rolename="manager"/>' tomcat6/conf/tomcat-users.xml && \
+	sed -i '36a <role rolename="manager-gui"/>' tomcat6/conf/tomcat-users.xml && \
+	sed -i '37a <role rolename="admin"/>' tomcat6/conf/tomcat-users.xml && \
+	sed -i '38a <role rolename="admin-gui"/>' tomcat6/conf/tomcat-users.xml && \
+	sed -i '39a <user username="admin" password="headingjpos" roles="admin-gui,admin,manager-gui,manager"/>' tomcat6/conf/tomcat-users.xml && \
+	sed -i '71 s%redirectPort="8443"%redirectPort="8443" maxThreads="800"%g' tomcat6/conf/server.xml
+
+EXPOSE 8080
+
+ENTRYPOINT ["/opt/heading/tomcat6/bin/catalina.sh","run"]

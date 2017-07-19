@@ -1,0 +1,9 @@
+FROM dockerhub.hd123.com/jre-alpine:7
+
+RUN mkdir -p /opt/heading/ && \
+	curl "http://download.hd123.com/TmpFiles/TA/20170620.2/jboss-4.2.2-GA-patch-1.tar.gz" | tar xz -C /opt/heading/ && \
+	chmod +x /opt/heading/jboss/bin/run.sh
+
+EXPOSE 8080
+
+ENTRYPOINT ["/opt/heading/jboss/bin/run.sh","-b","0.0.0.0"]

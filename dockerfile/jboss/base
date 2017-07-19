@@ -1,0 +1,14 @@
+FROM dockerhub.hd123.com/jre-alpine:6
+
+RUN	mkdir -p /opt/heading/upgrade && \
+	curl "http://download.hd123.com/TmpFiles/TA/20170513/jboss-hdcard-as-hq.tar.gz" | tar xz -C /opt/heading/ && \
+	chmod +x /opt/heading/hq/bin/run.sh && \
+	curl "http://download.hd123.com/TmpFiles/TA/20170521/jboss-hdcard-as-ct.tar.gz" | tar xz -C /opt/heading/ && \
+	chmod +x /opt/heading/ct/bin/run.sh && \
+	curl "http://download.hd123.com/TmpFiles/TA/20170513/jboss-hdcard-as-cs.tar.gz" | tar xz -C /opt/heading/ && \
+	chmod +x /opt/heading/cs/bin/run.sh && \
+	wget -P /opt/heading/ http://download.hd123.com/TmpFiles/TA/20170502/hdcard.sh && \
+	chmod +x /opt/heading/hdcard.sh
+ADD *.tar.gz /opt/heading/upgrade
+
+ENTRYPOINT sh /opt/heading/hdcard.sh

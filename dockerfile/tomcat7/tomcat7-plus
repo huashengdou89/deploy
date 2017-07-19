@@ -1,0 +1,20 @@
+FROM dockerhub.hd123.com/jre-alpine:7
+
+ENV TC_MAJOR=7 \
+	TC_VERSION=7.0.67 \
+	AC=500 \
+	MT=500
+ENV TC_URL=http://archive.apache.org/dist/tomcat/tomcat-$TC_MAJOR/v$TC_VERSION/bin/apache-tomcat-$TC_VERSION.tar.gz
+WORKDIR /opt/heading
+RUN wget $TC_URL && \
+	tar -xzf apache-tomcat-$TC_VERSION.tar.gz && \
+	mv apache-tomcat-$TC_VERSION tomcat7 && \
+	rm -rf tomcat7/bin/*.bat \
+		   tomcat7/webapps/* \
+		   apache-tomcat-$TC_VERSION.* && \
+	sed -i '98a JAVA_OPTS="-server -Duser.timezone=GMT+08 -Xms512m -Xmx1024m -XX:PermSize=256M -XX:MaxPermSize=512M -Dfile.encoding=UTF-8"' tomcat7/bin/catalina.sh && \
+	sed -i "73 s%redirectPort=\"8443\"%redirectPort=\"8443\" acceptCount=\"$AC\" maxThreads=\"$MT\"%g" tomcat7/conf/server.xml
+
+EXPOSE 8080
+
+ENTRYPOINT ["/opt/heading/tomcat7/bin/catalina.sh","run"]
