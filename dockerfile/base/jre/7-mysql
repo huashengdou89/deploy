@@ -1,0 +1,6 @@
+FROM dockerhub.hd123.com/jre-alpine:7
+
+RUN apk update && \
+    apk upgrade && \
+    apk add --no-cache bash mysql-client && \
+    rm -rf /var/cache/apk/*

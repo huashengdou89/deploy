@@ -1,0 +1,9 @@
+# base image
+FROM dockerhub.hd123.com/tomcat7:jdk1.7
+
+# developer info
+# MAINTAINER "shujun" <shujun@hd123.com>
+
+# Add zipfiles and Modify the configuration
+WORKDIR /opt/heading/tomcat7/conf
+RUN mv server.xml serverbak.xml && wget http://download.hd123.com/TmpFiles/TA/20170310/server.xml
