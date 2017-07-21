@@ -13,6 +13,7 @@ RUN wget $TC_URL && \
 	       tomcat6/webapps/* \
 		   apache-tomcat-$TC_VERSION.* && \
 #	sed -i '86a JAVA_OPTS="-Xms1g -Xmx4g -XX:+UseConcMarkSweepGC -XX:+CMSIncrementalMode -XX:NewSize=512m -XX:MaxPermSize=256m -Dfile.encoding=GBK"' tomcat6/bin/catalina.sh && \
+	sed -i '71a <Listener className="org.apache.catalina.mbeans.JmxRemoteLifecycleListener" rmiRegistryPortPlatform="10001" rmiServerPortPlatform="10002" />' tomcat6/conf/server.xml && \
 	wget -P /opt/heading/ http://download.hd123.com/TmpFiles/TA/20170719/run.sh && \
 	chmod +x /opt/heading/run.sh
 
