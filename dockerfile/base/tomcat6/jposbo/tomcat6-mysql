@@ -11,7 +11,7 @@ RUN wget $TC_URL && \
 	mv apache-tomcat-$TC_VERSION tomcat6 && \
 	rm -rf tomcat6/bin/*.bat \
 	       tomcat6/webapps/* \
-		   apache-tomcat-$TC_VERSION.*
+		   apache-tomcat-$TC_VERSION.* && \
 #	sed -i '86a JAVA_OPTS="-Xms1g -Xmx4g -XX:+UseConcMarkSweepGC -XX:+CMSIncrementalMode -XX:NewSize=512m -XX:MaxPermSize=256m -Dfile.encoding=GBK"' tomcat6/bin/catalina.sh && \
 	wget -P /opt/heading/ http://download.hd123.com/TmpFiles/TA/20170719/run.sh && \
 	chmod +x /opt/heading/run.sh
