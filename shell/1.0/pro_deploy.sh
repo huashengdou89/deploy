@@ -9,197 +9,197 @@ set +e
 echo '## Deploy information'
 export DOCKERHUBUSER DOCKERHUBUSERPW DOCKERHUBUSEREM NEWORAURL NEWORAUSER NEWORAPWD NEWPFSPWD DTSVERSION PFSVERSION JPOSBOVERSION OTTERVERSION HDPOS4VERSION RESTVERSION DTSPORT PFSPORT JPOSBOPORT OTTERPORT HDPOS4PORT RESTPORT DEPLOYDIR NEWLIC MYSQL_ROOT_PASSWORD MYSQL_DATABASE MYSQL_USER MYSQL_PASSWORD MYSQLPORT NEWPFSUSER LIST EXTRANETIP EXTRANETHOST ENVNAME OLDMYSQL_URL NEWCARDORAURLN NEWCARDORAURLS CARDVERSION CARDSERVERPORT CTPORT HQPORT NEWCARDCTS NEWCARDCTN NEWCARDHQN NEWCARDHQS NEWVER CARDSERVERVERSION ACTION JPOSBONAME PASOREPORTVERSION PASOREPORTPORT PAMYSQLPORT PAREDISPORT PAMYSQL_ROOT_PASSWORD PAMYSQL_DATABASE PAMYSQL_USER PAMYSQL_PASSWORD HQMPORT CTMPORT JCRMVERSION JCRMPORT AZKABANVERSION AZKABANPORT AZMYSQLPORT AZMYSQL_DATABASE AZMYSQL_USER AZMYSQL_PASSWORD AZEXECUTORPORT CSPORT
 #################################################
-#登录Dockerhub用户
+#��¼Dockerhub�û�
 DOCKERHUBUSER=""
-#登录Dockerhub密码
+#��¼Dockerhub����
 DOCKERHUBUSERPW=""
-#登录Dockerhub用户邮箱
+#��¼Dockerhub�û�����
 #DOCKERHUBUSEREM=""
 #################################################
 
 
 #################################################
-#Oracle数据库连接配置
+#Oracle���ݿ���������
 NEWORAURL="172.17.12.22:1521:hdpos4"
-#Oracle数据库hd40用户
+#Oracle���ݿ�hd40�û�
 NEWORAUSER="hd40"
-#Oracle数据库hd40用户密码
+#Oracle���ݿ�hd40�û�����
 NEWORAPWD="hd40"
-#Oracle数据库pfs用户
+#Oracle���ݿ�pfs�û�
 NEWPFSUSER="hd40"
-#Oracle数据库pfs用户密码
+#Oracle���ݿ�pfs�û�����
 NEWPFSPWD="hd40"
-#许可证地址
+#����֤��ַ
 NEWLIC="172.17.12.206"
-#Card普通库连接配置
+#Card��ͨ����������
 NEWCARDORAURLN="172.17.12.22:1521:HDCARDN"
-#Card机要库连接配置
+#Card��Ҫ����������
 NEWCARDORAURLS="172.17.12.22:1521:HDCARDS"
-#Cardcts用户名&密码
+#Cardcts�û���&����
 NEWCARDCTS="hdcardcts"
-#Cardctn用户名&密码
+#Cardctn�û���&����
 NEWCARDCTN="hdcardctn"
-#Cardhqs用户名&密码
+#Cardhqs�û���&����
 NEWCARDHQS="hdcardhqs"
-#Cardhqn用户名&密码
+#Cardhqn�û���&����
 NEWCARDHQN="hdcardhqn"
-#Card需要升级的版本
+#Card��Ҫ�����İ汾
 NEWVER="48"
 #################################################
 
 
 #################################################
-#Dts-store版本
+#Dts-store�汾
 DTSVERSION="1.13.1"
-#Dts-store端口
+#Dts-store�˿�
 DTSPORT="8180"
 #################################################
 
 
 #################################################
-#Pfs版本
+#Pfs�汾
 PFSVERSION="2.7"
-#Pfs端口
+#Pfs�˿�
 PFSPORT="8280"
 #################################################
 
 
 #################################################
-#Jposbo项目名称
+#Jposbo��Ŀ����
 JPOSBONAME="hdpos46std"
-#Jposbo版本
+#Jposbo�汾
 JPOSBOVERSION="hdpos46std_2017071_pro"
-#Jposbo端口
+#Jposbo�˿�
 JPOSBOPORT="8380"
-#Jposbo-Mysql端口
+#Jposbo-Mysql�˿�
 MYSQLPORT="3306"
-#Jposbo-Mysql管理员用户密码
+#Jposbo-Mysql����Ա�û�����
 MYSQL_ROOT_PASSWORD="headingjpos"
-#Jposbo-Mysql创建jposbo数据库名称
+#Jposbo-Mysql����jposbo���ݿ�����
 MYSQL_DATABASE="jposbo"
-#Jposbo-Mysql创建jposbo数据库用户
+#Jposbo-Mysql����jposbo���ݿ��û�
 MYSQL_USER="heading"
-#Jposbo-Mysql创建jposbo数据库用户密码
+#Jposbo-Mysql����jposbo���ݿ��û�����
 MYSQL_PASSWORD="heading"
 #################################################
 
 
 #################################################
-#Pasoreport版本
+#Pasoreport�汾
 PASOREPORTVERSION="1.1.1"
-#Pasoreport端口
+#Pasoreport�˿�
 PASOREPORTPORT="18980"
-#Pasoreport-Mysql端口
+#Pasoreport-Mysql�˿�
 PAMYSQLPORT="13306"
-#Pasoreport-Redis端口
+#Pasoreport-Redis�˿�
 PAREDISPORT="16379"
-#Pasoreport-Mysql管理员用户密码
+#Pasoreport-Mysql����Ա�û�����
 PAMYSQL_ROOT_PASSWORD="hG4uWDsgcHmvyte4"
-#Pasoreport-Mysql创建Pasoreport数据库名称
+#Pasoreport-Mysql����Pasoreport���ݿ�����
 PAMYSQL_DATABASE="pasoreport"
-#Pasoreport-Mysql创建Pasoreport数据库用户
+#Pasoreport-Mysql����Pasoreport���ݿ��û�
 PAMYSQL_USER="pasoreport"
-#Pasoreport-Mysql创建Pasoreport数据库用户密码
+#Pasoreport-Mysql����Pasoreport���ݿ��û�����
 PAMYSQL_PASSWORD="hG4uWDsgcHmvyte4"
 #################################################
 
 
 #################################################
-#Otter-r3版本
+#Otter-r3�汾
 OTTERVERSION="1.35"
-#Otter-r3端口
+#Otter-r3�˿�
 OTTERPORT="8480"
 #################################################
 
 
 #################################################
-#Hdpos4.6版本
+#Hdpos4.6�汾
 HDPOS4VERSION="1.0"
-#Hdpos4.6端口
+#Hdpos4.6�˿�
 HDPOS4PORT="8580"
 #################################################
 
 
 #################################################
-#H4rest版本
+#H4rest�汾
 RESTVERSION="1.21"
-#H4rest端口
+#H4rest�˿�
 RESTPORT="28580"
 #################################################
 
 
 #################################################
-#Card版本
+#Card�汾
 CARDVERSION="3.48"
-#Card总部端口
+#Card�ܲ��˿�
 HQPORT="8680"
-#Card中心端口
+#Card���Ķ˿�
 CTPORT="8780"
-#Cardserver端口
+#Cardserver�˿�
 CSPORT="8880"
-#Card中心信息通信端口
+#Card������Ϣͨ�Ŷ˿�
 CTMPORT="1199"
-#Card总部信息通信端口
+#Card�ܲ���Ϣͨ�Ŷ˿�
 HQMPORT="1299"
 #################################################
 
 
 #################################################
-#单独安装Cardserver才需配置该部分信息，否则忽略
-#Cardserver版本
+#������װCardserver�������øò�����Ϣ���������
+#Cardserver�汾
 CARDSERVERVERSION="3.47"
-#Cardserver端口
+#Cardserver�˿�
 CARDSERVERPORT="8880"
 #################################################
 
 
 #################################################
-#Jcrm版本
+#Jcrm�汾
 JCRMVERSION="2.0.18"
-#Jcrm端口
+#Jcrm�˿�
 JCRMPORT="8980"
 #################################################
 
 
 #################################################
-#Azkaban版本
+#Azkaban�汾
 AZKABANVERSION="latest"
-#Azkaban端口
+#Azkaban�˿�
 AZKABANPORT="28443"
-#Azkaban-Mysql端口
+#Azkaban-Mysql�˿�
 AZMYSQLPORT="43306"
-#Azkaban-executor端口
+#Azkaban-executor�˿�
 AZEXECUTORPORT="12321"
-#Azkaban-Mysql创建Azkaban数据库名称
+#Azkaban-Mysql����Azkaban���ݿ�����
 AZMYSQL_DATABASE="azkaban"
-#Azkaban-Mysql创建Azkaban数据库用户
+#Azkaban-Mysql����Azkaban���ݿ��û�
 AZMYSQL_USER="azkaban"
-#Azkaban-Mysql创建Azkaban数据库用户密码
+#Azkaban-Mysql����Azkaban���ݿ��û�����
 AZMYSQL_PASSWORD="azkaban"
 #################################################
 
 
 #################################################
-#宿主机自定义hostname
+#�������Զ���hostname
 EXTRANETHOST="hdpos"
-#宿主机外网ip
+#����������ip
 EXTRANETIP="172.17.12.23"
-#日志等存放路径
+#��־�ȴ��·��
 DEPLOYDIR="data"
-#正式环境or预演环境
+#��ʽ����orԤ�ݻ���
 ENVNAME="jichen"
 #################################################
 
 
 #################################################
-#需要安装产品列表,可选值"DTS PFS JPOSBO CARD CARDSERVER OTTER HDPOS4 REST PASOREPORT JCRM AZKABAN",一定要大写,注意空格
+#��Ҫ��װ��Ʒ�б�,��ѡֵ"DTS PFS JPOSBO CARD CARDSERVER OTTER HDPOS4 REST PASOREPORT JCRM AZKABAN",һ��Ҫ��д,ע��ո�
 LIST="JPOSBO"
-#初次安装还是重新部署,可选值install|redeploy
+#���ΰ�װ�������²���,��ѡֵinstall|redeploy
 ACTION="install"
 #################################################
 
 
-#以下内容无需配置
+#����������������
 OLDMYSQL_URL="172.17.2.116\/jposbo${JPOSBONAME}"
 
 download_script(){
