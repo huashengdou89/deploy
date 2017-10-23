@@ -222,7 +222,7 @@ download_script(){
 	unzip -qo script.zip -d ${PWD} | xargs rm *.zip*
 	type docker >/dev/null 2>&1 || { echo >&2 "docker is not installed"; sh docker_install.sh; }
 	bash Public.sh
-	ls *.sh | grep -v pro_deploy1.0.sh | xargs rm
+	ls *.sh | grep -v pro_deploy.sh | xargs rm
 	date
 }
 download_script
