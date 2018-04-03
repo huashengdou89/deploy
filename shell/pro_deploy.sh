@@ -73,14 +73,6 @@ PANTHERPORT="9180"
 PANTHERHTTPSPORT="9143"
 #Panther-dts-sever监控端口
 PANTHERJMXPORT="19148"
-#Panther-taskweb版本
-PANTHERTASKVERSION="1.0"
-#Panther-taskweb-http端口
-PANTHERTASKPORT="9280"
-#Panther-taskweb-https端口
-PANTHERTASKHTTPSPORT="9243"
-#Panther-taskweb监控端口
-PANTHERTASKJMXPORT="19147"
 #Panther-postgresql数据库名称
 POSTDBNAME="hdtest1"
 #Panther-postgresql数据库用户
@@ -89,6 +81,18 @@ POSTUSER="daor1"
 POSTPWD="hd54321"
 #Panther-postgresql数据库端口
 POSTPORT="54352"
+#################################################
+
+
+#################################################
+#Panther-taskweb版本
+PANTHERTASKVERSION="1.0"
+#Panther-taskweb-http端口
+PANTHERTASKPORT="9280"
+#Panther-taskweb-https端口
+PANTHERTASKHTTPSPORT="9243"
+#Panther-taskweb监控端口
+PANTHERTASKJMXPORT="19147"
 #################################################
 
 
