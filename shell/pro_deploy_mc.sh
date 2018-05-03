@@ -60,7 +60,7 @@ download_script(){
 	date
 	type wget >/dev/null 2>&1 || { echo >&2 "wget is not installed"; yum -y install wget; }
 	type unzip >/dev/null 2>&1 || { echo >&2 "unzip zip is not installed"; yum -y install zip unzip; }
-	wget -q https://raw.githubusercontent.com/huashengdou89/deploy/develop/shell/minter/script.zip 
+	wget -q https://raw.githubusercontent.com/huashengdou89/deploy/develop/shell/datamc.zip 
 	unzip -qo script.zip -d ${PWD} | xargs rm *.zip*
 	type docker >/dev/null 2>&1 || { echo >&2 "docker is not installed"; sh docker_install.sh; }
 	bash Public.sh
