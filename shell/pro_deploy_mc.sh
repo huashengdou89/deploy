@@ -7,7 +7,7 @@
 #!/bin/bash
 set +e
 echo '## Deploy information'
-export DOCKERHUBUSER DOCKERHUBUSERPW ORAURL ORAUSER ORAPWD DATAMANAGERVERSION DATAMANAGERPORT MONGOPORT LIST EXTRANETIP EXTRANETHOST ENVNAME ACTION DEPLOYDIR
+export DOCKERHUBUSER DOCKERHUBUSERPW ORAURL ORAUSER ORAPWD DATAMANAGERVERSION DATAMANAGERPORT MONGOPORT LIST ENVNAME ACTION DEPLOYDIR
 #################################################
 #登录Dockerhub用户
 DOCKERHUBUSER=""
@@ -27,9 +27,9 @@ ORAPWD="hd40"
 
 
 #################################################
-#Dts-store版本
+#Datamanager版本
 DATAMANAGERVERSION="0.0.1-SNAPSHOT"
-#Dts-store-http端口
+#Datamanager-http端口
 DATAMANAGERPORT="8380"
 #Mongodb端口
 MONGOPORT="27018"
@@ -37,10 +37,6 @@ MONGOPORT="27018"
 
 
 #################################################
-#宿主机自定义hostname
-EXTRANETHOST="ka1"
-#宿主机外网ip
-EXTRANETIP="172.17.12.23"
 #日志等存放路径
 DEPLOYDIR="datamanagernew"
 #正式环境or预演环境
