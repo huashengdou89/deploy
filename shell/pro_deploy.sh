@@ -169,7 +169,7 @@ CABLEJMXPORT="39548"
 
 
 #################################################
-#Hdpos4.6项目名
+#Hdpos4.6项目名,如hdpos4,hdpos4-nome,hdpos4-mci
 H4IMAGE="hdpos4-nome"
 #Hdpos4.6版本
 HDPOS4VERSION="1.0"
