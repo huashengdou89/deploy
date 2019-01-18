@@ -103,7 +103,7 @@ deploying_container() {
 													s%password=hd40%password=${CNEWORAPWD}%;\
 													s%username=hd40%username=${CNEWORAUSER}%;\
 													s%default_schema=hd40%default_schema=${CNEWORAUSER}%;\
-													s%runMode=development%runMode=production%" /opt/heading/tomcat7/webapps/hdpos4-web/WEB-INF/classes/hdpos4-web.properties') >/dev/null 2>&1
+													s%runMode=development%runMode=production%" /opt/heading/tomcat7/webapps/${H4IMAGE}-web/WEB-INF/classes/hdpos4-web.properties') >/dev/null 2>&1
 }
 
 pull_image() {
