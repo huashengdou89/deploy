@@ -123,11 +123,11 @@ pull_image() {
 export -f pull_image
 
 cpout_config() {
-    sudo docker cp ${IMAGE}_${ENVNAME}:/opt/heading/tomcat7/webapps/hdpos4-web/WEB-INF/classes/${H4IMAGE}-web.properties ${ConfPath}
+    sudo docker cp ${IMAGE}_${ENVNAME}:/opt/heading/tomcat7/webapps/${H4IMAGE}-web/WEB-INF/classes/hdpos4-web.properties ${ConfPath}
 }
 
 cpin_config() {
-    sudo docker cp ${ConfPath}/${H4IMAGE}-web.properties ${IMAGE}_${ENVNAME}:/opt/heading/tomcat7/webapps/hdpos4-web/WEB-INF/classes/
+    sudo docker cp ${ConfPath}/hdpos4-web.properties ${IMAGE}_${ENVNAME}:/opt/heading/tomcat7/webapps/${H4IMAGE}-web/WEB-INF/classes/
 }
 
 if [ "${ACTION}" = "install" ]; then
