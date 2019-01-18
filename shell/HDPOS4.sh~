@@ -86,7 +86,7 @@ start_container() {
 					     --log-opt max-size=50m \
 					     -m 16g \
 						 -e JAVA_OPTS="-server -Xms4096m -Xmx16384m -XX:PermSize=256M -XX:MaxPermSize=512M -Duser.timezone=GMT+08 -Dfile.encoding=UTF-8 -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=${HDPOS4JMXPORT} -Dcom.sun.management.jmxremote.rmi.port=${HDPOS4JMXPORT} -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.local.only=false -Djava.rmi.server.hostname=${INTRANETIP}" \
-					     --name ${IMAGE}_${ENVNAME} ${DOCKERHUB}/hdpos46/${H4IMAGE}-dist:${VERSION}) >/dev/null 2>&1
+					     --name ${H4IMAGE}_${ENVNAME} ${DOCKERHUB}/hdpos46/${H4IMAGE}-dist:${VERSION}) >/dev/null 2>&1
 }
 
 deploying_container() {
@@ -96,15 +96,14 @@ deploying_container() {
 						-e CNEWORAURL="${NEWORAURL}" \
 						-e CNEWORAUSER="${NEWORAUSER}" \
 						-e CNEWORAPWD="${NEWORAPWD}" \
-						-e CH4IMAGE="${H4IMAGE}" \
-						${IMAGE}_${ENVNAME} sh -c '
+						${H4IMAGE}_${ENVNAME} sh -c '
 												sed -i  "
 													s%\r$%%;\
 													/url/s%${COLDORAURL}%${CNEWORAURL}%;\
 													s%password=hd40%password=${CNEWORAPWD}%;\
 													s%username=hd40%username=${CNEWORAUSER}%;\
 													s%default_schema=hd40%default_schema=${CNEWORAUSER}%;\
-													s%runMode=development%runMode=production%" /opt/heading/tomcat7/webapps/${CH4IMAGE}-web/WEB-INF/classes/${CH4IMAGE}-web.properties') >/dev/null 2>&1
+													s%runMode=development%runMode=production%" /opt/heading/tomcat7/webapps/${H4IMAGE}-web/WEB-INF/classes/hdpos4-web.properties') >/dev/null 2>&1
 }
 
 pull_image() {
@@ -122,11 +121,11 @@ pull_image() {
 export -f pull_image
 
 cpout_config() {
-    sudo docker cp ${IMAGE}_${ENVNAME}:/opt/heading/tomcat7/webapps/hdpos4-web/WEB-INF/classes/${H4IMAGE}-web.properties ${ConfPath}
+    sudo docker cp ${H4IMAGE}_${ENVNAME}:/opt/heading/tomcat7/webapps/hdpos4-web/WEB-INF/classes/${H4IMAGE}-web.properties ${ConfPath}
 }
 
 cpin_config() {
-    sudo docker cp ${ConfPath}/${H4IMAGE}-web.properties ${IMAGE}_${ENVNAME}:/opt/heading/tomcat7/webapps/hdpos4-web/WEB-INF/classes/
+    sudo docker cp ${ConfPath}/${H4IMAGE}-web.properties ${H4IMAGE}_${ENVNAME}:/opt/heading/tomcat7/webapps/hdpos4-web/WEB-INF/classes/
 }
 
 if [ "${ACTION}" = "install" ]; then
